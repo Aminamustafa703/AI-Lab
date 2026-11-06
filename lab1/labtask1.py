@@ -5,9 +5,6 @@ def scholarship(score, documents, attendance, interview):
     else:
         return "Not Eligible"
 
-
-# Four test cases
-
 cases = [
     ("Pass", 85, True, 80, True),
     ("Attendance Fail", 80, True, 60, True),

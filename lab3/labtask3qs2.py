@@ -1,6 +1,3 @@
-# ============================================================
-# Lab 3 - Task 2: DLS and IDDFS
-# ============================================================
 
 graph = {
     "A": ["B", "C"],
@@ -12,20 +9,16 @@ graph = {
     "G": []
 }
 
-# ---------------- Depth-Limited Search (DLS) ----------------
 def dls(start, goal, limit):
     """
     Returns: (status, path)
     status → "FOUND", "CUTOFF", or "FAILURE"
     """
     def recursive_dls(node, path, depth):
-        # Goal test
         if node == goal:
             return "FOUND", path
 
-        # Depth limit reached
         if depth == limit:
-            # Check if deeper nodes are possible
             if any(neighbor not in path for neighbor in graph[node]):
                 return "CUTOFF", None
             else:
@@ -50,7 +43,6 @@ def dls(start, goal, limit):
     return recursive_dls(start, [start], 0)
 
 
-# ---------------- Iterative Deepening DFS (IDDFS) ----------------
 def iddfs(start, goal, max_depth):
     """
     Tries increasing depth limits from 0 to max_depth
@@ -67,7 +59,6 @@ def iddfs(start, goal, max_depth):
     return "FAILURE", None, max_depth
 
 
-# ======================== TESTING ========================
 
 print("=" * 55)
 print("DLS Results (Limits 1 to 4)")
